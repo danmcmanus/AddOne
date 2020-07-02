@@ -1,26 +1,47 @@
 import SwiftUI
+import CoreData
 
 struct GameView: View {
-    
-    @FetchRequest(
-        entity: Game.entity(),
-        sortDescriptors: [
-            NSSortDescriptor(keyPath: \Game.score, ascending: true)
-    ]) var games: FetchedResults<Game>
-    
     @Environment(\.managedObjectContext) var managedObjectContext
     @EnvironmentObject var gameData: GameData
     @State private var showingAlert = false
+    @State private var showCorrect = false
+    @State private var showIncorrect = false
+    @State private var showNone = true
+    @State private var gameOverTitle = ""
+    
+    func getHighScore() {
+        let sortDescriptors = NSSortDescriptor(keyPath: \Game.score, ascending: false)
+        let fetchRequest = NSFetchRequest<Game>(entityName: "Game")
+        fetchRequest.fetchLimit = 1
+        fetchRequest.sortDescriptors = [sortDescriptors]
+        
+        do {
+            let result = try managedObjectContext.fetch(fetchRequest)
+            let highScore = result.first?.score ?? 0
+            if self.gameData.score > highScore {
+                self.gameOverTitle = "New High Score!"
+            } else {
+                self.gameOverTitle = "Game Over"
+            }
+        } catch let error as NSError {
+            print("Error fetching: \(error), \(error.userInfo)")
+        }
+    }
     
     func handleInput() {
         guard gameData.inputValue.count == 4 else {
             return
         }
-        
+    
         if checkIsMatch() {
             self.gameData.score += 1
+            self.showCorrect = true
+            self.showIncorrect = false
         } else {
             self.gameData.score -= 1
+            self.showIncorrect = true
+            self.showCorrect = false
         }
         
         self.gameData.inputValue = ""
@@ -29,9 +50,11 @@ struct GameView: View {
         
         if self.gameData.timer == nil {
             self.gameData.timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { time in
+                self.showNone = false
                 if self.gameData.seconds == 0 {
-                    self.gameData.seconds = 60
-                    self.saveContext()
+                    self.resetGame()
+                    self.getHighScore()
+                    self.saveGame()
                     self.finishGame()
                 } else if self.gameData.seconds <= 60 {
                     self.gameData.seconds -= 1
@@ -41,20 +64,22 @@ struct GameView: View {
     }
     
     func finishGame() {
-        
-        let newGame = Game(context: managedObjectContext)
-        
-        newGame.score = Int32(self.gameData.score)
-        
-        showAlert()
+        self.showingAlert = true
+        resetGame()
     }
     
-    func showAlert() {
-        self.showingAlert = true
+    func saveGame() {
+        let newGame = Game(context: self.managedObjectContext)
+        newGame.score = Int32(self.gameData.score)
+        self.saveContext()
     }
     
     func resetGame() {
-        self.gameData.seconds = 0
+        self.gameData.seconds = 60
+        self.gameData.timer?.invalidate()
+        self.showCorrect = false
+        self.showIncorrect = false
+        self.showNone = true
     }
     
     func checkIsMatch() -> Bool {
@@ -89,7 +114,6 @@ struct GameView: View {
     }
     
     var body: some View {
-        
         let textInputBinding = Binding<String>(get: {
             self.gameData.inputValue
         }, set: {
@@ -110,7 +134,21 @@ struct GameView: View {
                         .foregroundColor(.white)
                         .font(.system(size: 20)).multilineTextAlignment(.leading)
                         .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 0)))
+                    
                     Spacer()
+                    
+                    if showNone {
+                        EmptyView()
+                    }
+                    if showCorrect {
+                        Image("checkbox")
+                    }
+                    if showIncorrect {
+                        Image("X")
+                    }
+                    
+                    Spacer()
+                    
                     Image("time")
                         .padding()
                         .overlay(Text(":\(self.gameData.seconds)")
@@ -133,47 +171,39 @@ struct GameView: View {
                         .multilineTextAlignment(.center)).keyboardType(.numberPad)
 
                     
+                //Spacer()
+                
+                Text("Add 1 to each of the digits.\r\nSo, 1357 becomes 2468. \r\n(9 becomes 0)")
+                    .fontWeight(.bold)
+                    .foregroundColor(.white)
+                    .font(.system(size: 24))
+                    .multilineTextAlignment(.leading)
+                    .padding()
+                
                 Spacer()
+
+
             }
         }.alert(isPresented: $showingAlert) {
-            Alert(title: Text("Game Over"),
+            Alert(title: Text(self.gameOverTitle),
                   message: Text("You Scored \(self.gameData.score) Points!"),
                   dismissButton: .default(Text("Start New Game"), action: {
-
                     self.gameData.reset()
                 }))
         }
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+
+struct GameView_Previews: PreviewProvider {
     static var previews: some View {
         GameView()
         .environmentObject(GameData())
     }
 }
 
-extension Color {
-    init(_ hex: UInt32, opacity:Double = 1.0) {
-        let red = Double((hex & 0xff0000) >> 16) / 255.0
-        let green = Double((hex & 0xff00) >> 8) / 255.0
-        let blue = Double((hex & 0xff) >> 0) / 255.0
-        self.init(.sRGB, red: red, green: green, blue: blue, opacity: opacity)
-    }
-}
 
-extension String {
-    static func randomNumber(length: Int) -> String {
-        var result = ""
 
-        for _ in 0..<length {
-            let digit = Int.random(in: 0...9)
-            result += "\(digit)"
-        }
-
-        return result
-    }
-}
 
 
 

@@ -16,6 +16,8 @@
 		371B62A924AC6DC00027B5B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 371B62A724AC6DC00027B5B3 /* LaunchScreen.storyboard */; };
 		371B62B124AC6FE40027B5B3 /* GameData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371B62B024AC6FE40027B5B3 /* GameData.swift */; };
 		371B62B324AD69B70027B5B3 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 371B62B224AD69B70027B5B3 /* .gitignore */; };
+		371B62BA24AD9ACA0027B5B3 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371B62B924AD9ACA0027B5B3 /* Extensions.swift */; };
+		371B62BC24AD9B240027B5B3 /* Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371B62BB24AD9B240027B5B3 /* Modifiers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		371B62AA24AC6DC00027B5B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		371B62B024AC6FE40027B5B3 /* GameData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameData.swift; path = "../../../add-one/ella/GameData.swift"; sourceTree = "<group>"; };
 		371B62B224AD69B70027B5B3 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		371B62B924AD9ACA0027B5B3 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		371B62BB24AD9B240027B5B3 /* Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifiers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +69,7 @@
 			children = (
 				371B629924AC6DBF0027B5B3 /* AppDelegate.swift */,
 				371B629B24AC6DBF0027B5B3 /* SceneDelegate.swift */,
+				371B62B924AD9ACA0027B5B3 /* Extensions.swift */,
 				371B62A024AC6DBF0027B5B3 /* GameView.swift */,
 				371B62B024AC6FE40027B5B3 /* GameData.swift */,
 				371B62A224AC6DC00027B5B3 /* Assets.xcassets */,
@@ -72,6 +77,7 @@
 				371B62AA24AC6DC00027B5B3 /* Info.plist */,
 				371B629D24AC6DBF0027B5B3 /* AddOne.xcdatamodeld */,
 				371B62A424AC6DC00027B5B3 /* Preview Content */,
+				371B62BB24AD9B240027B5B3 /* Modifiers.swift */,
 			);
 			path = AddOne;
 			sourceTree = "<group>";
@@ -158,7 +164,9 @@
 			files = (
 				371B629A24AC6DBF0027B5B3 /* AppDelegate.swift in Sources */,
 				371B62B124AC6FE40027B5B3 /* GameData.swift in Sources */,
+				371B62BC24AD9B240027B5B3 /* Modifiers.swift in Sources */,
 				371B629F24AC6DBF0027B5B3 /* AddOne.xcdatamodeld in Sources */,
+				371B62BA24AD9ACA0027B5B3 /* Extensions.swift in Sources */,
 				371B62A124AC6DBF0027B5B3 /* GameView.swift in Sources */,
 				371B629C24AC6DBF0027B5B3 /* SceneDelegate.swift in Sources */,
 			);
