@@ -34,6 +34,7 @@
 		371B62B224AD69B70027B5B3 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		371B62B924AD9ACA0027B5B3 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		371B62BB24AD9B240027B5B3 /* Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifiers.swift; sourceTree = "<group>"; };
+		37604C3A24AE64C000CE25EE /* AddOne.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AddOne.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +68,7 @@
 		371B629824AC6DBF0027B5B3 /* AddOne */ = {
 			isa = PBXGroup;
 			children = (
+				37604C3A24AE64C000CE25EE /* AddOne.entitlements */,
 				371B629924AC6DBF0027B5B3 /* AppDelegate.swift */,
 				371B629B24AC6DBF0027B5B3 /* SceneDelegate.swift */,
 				371B62B924AD9ACA0027B5B3 /* Extensions.swift */,
@@ -304,7 +306,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_ENTITLEMENTS = AddOne/AddOne.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_ASSET_PATHS = "\"AddOne/Preview Content\"";
 				DEVELOPMENT_TEAM = 2M498ARC87;
 				ENABLE_PREVIEWS = YES;
@@ -315,6 +319,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.dmcdev.AddOne;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "iOS Signing Profile";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -324,7 +329,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_ENTITLEMENTS = AddOne/AddOne.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_ASSET_PATHS = "\"AddOne/Preview Content\"";
 				DEVELOPMENT_TEAM = 2M498ARC87;
 				ENABLE_PREVIEWS = YES;
@@ -335,6 +342,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.dmcdev.AddOne;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "iOS Signing Profile";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
