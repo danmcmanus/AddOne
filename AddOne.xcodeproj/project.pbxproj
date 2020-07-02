@@ -14,10 +14,10 @@
 		371B62A324AC6DC00027B5B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 371B62A224AC6DC00027B5B3 /* Assets.xcassets */; };
 		371B62A624AC6DC00027B5B3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 371B62A524AC6DC00027B5B3 /* Preview Assets.xcassets */; };
 		371B62A924AC6DC00027B5B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 371B62A724AC6DC00027B5B3 /* LaunchScreen.storyboard */; };
-		371B62B124AC6FE40027B5B3 /* GameData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371B62B024AC6FE40027B5B3 /* GameData.swift */; };
 		371B62B324AD69B70027B5B3 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 371B62B224AD69B70027B5B3 /* .gitignore */; };
 		371B62BA24AD9ACA0027B5B3 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371B62B924AD9ACA0027B5B3 /* Extensions.swift */; };
 		371B62BC24AD9B240027B5B3 /* Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371B62BB24AD9B240027B5B3 /* Modifiers.swift */; };
+		37604C3C24AE6E2900CE25EE /* GameData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37604C3B24AE6E2900CE25EE /* GameData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,11 +30,11 @@
 		371B62A524AC6DC00027B5B3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		371B62A824AC6DC00027B5B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		371B62AA24AC6DC00027B5B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		371B62B024AC6FE40027B5B3 /* GameData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameData.swift; sourceTree = "<group>"; };
 		371B62B224AD69B70027B5B3 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		371B62B924AD9ACA0027B5B3 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		371B62BB24AD9B240027B5B3 /* Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifiers.swift; sourceTree = "<group>"; };
 		37604C3A24AE64C000CE25EE /* AddOne.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AddOne.entitlements; sourceTree = "<group>"; };
+		37604C3B24AE6E2900CE25EE /* GameData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,13 +73,13 @@
 				371B629B24AC6DBF0027B5B3 /* SceneDelegate.swift */,
 				371B62B924AD9ACA0027B5B3 /* Extensions.swift */,
 				371B62A024AC6DBF0027B5B3 /* GameView.swift */,
-				371B62B024AC6FE40027B5B3 /* GameData.swift */,
 				371B62A224AC6DC00027B5B3 /* Assets.xcassets */,
 				371B62A724AC6DC00027B5B3 /* LaunchScreen.storyboard */,
 				371B62AA24AC6DC00027B5B3 /* Info.plist */,
 				371B629D24AC6DBF0027B5B3 /* AddOne.xcdatamodeld */,
 				371B62A424AC6DC00027B5B3 /* Preview Content */,
 				371B62BB24AD9B240027B5B3 /* Modifiers.swift */,
+				37604C3B24AE6E2900CE25EE /* GameData.swift */,
 			);
 			path = AddOne;
 			sourceTree = "<group>";
@@ -165,10 +165,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				371B629A24AC6DBF0027B5B3 /* AppDelegate.swift in Sources */,
-				371B62B124AC6FE40027B5B3 /* GameData.swift in Sources */,
 				371B62BC24AD9B240027B5B3 /* Modifiers.swift in Sources */,
 				371B629F24AC6DBF0027B5B3 /* AddOne.xcdatamodeld in Sources */,
 				371B62BA24AD9ACA0027B5B3 /* Extensions.swift in Sources */,
+				37604C3C24AE6E2900CE25EE /* GameData.swift in Sources */,
 				371B62A124AC6DBF0027B5B3 /* GameView.swift in Sources */,
 				371B629C24AC6DBF0027B5B3 /* SceneDelegate.swift in Sources */,
 			);
